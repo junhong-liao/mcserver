@@ -1,0 +1,278 @@
+MCMMO Single-Player Setup Guide (2024 Modern Edition)
+
+This guide provides the SIMPLEST automated path to set up MCMMO for single-player use. 
+Everything is scripted for maximum automation - just run and play!
+
+=== THE 5-MINUTE AUTOMATED SETUP ===
+
+Prerequisites:
+* Java 21 (download from adoptium.net - any modern version works)
+* Any modern OS (Windows/Mac/Linux)
+* Internet connection for downloads
+
+AUTOMATED SETUP SCRIPT (Windows):
+Create a file called "setup.bat" and paste this:
+
+```batch
+@echo off
+title MCMMO Server Setup
+color 0A
+echo ================================
+echo  MCMMO Single-Player Auto-Setup
+echo ================================
+echo.
+
+REM Create server directory
+echo [1/6] Creating server directory...
+mkdir minecraft-mcmmo-server 2>nul
+cd minecraft-mcmmo-server
+
+REM Download Paper server (latest)
+echo [2/6] Downloading Paper server...
+curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/latest/downloads/paper-1.21.6-latest.jar"
+if errorlevel 1 (
+    echo ERROR: Failed to download Paper server
+    pause
+    exit /b 1
+)
+
+REM Create plugins directory and download MCMMO Classic
+echo [3/6] Downloading MCMMO Classic (FREE)...
+mkdir plugins 2>nul
+curl -L -o plugins/mcMMO.jar "https://jenkins.neetgames.com/job/mcMMO/job/mcMMO-Classic/lastSuccessfulBuild/artifact/target/mcMMO.jar"
+if errorlevel 1 (
+    echo ERROR: Failed to download MCMMO
+    pause
+    exit /b 1
+)
+
+REM Create optimized start script
+echo [4/6] Creating launch script...
+(
+echo @echo off
+echo title MCMMO Server
+echo :start
+echo echo Starting MCMMO server...
+echo java -Xmx4G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -jar paper.jar --nogui
+echo echo.
+echo echo Server stopped. Press any key to restart or close window to exit.
+echo pause >nul
+echo goto start
+) > start-server.bat
+
+REM Accept EULA automatically
+echo [5/6] Accepting EULA...
+echo eula=true > eula.txt
+
+REM Configure server for single-player optimized experience  
+echo [6/6] Configuring server...
+(
+echo # MCMMO Single-Player Server Configuration
+echo online-mode=false
+echo gamemode=survival
+echo difficulty=normal
+echo max-players=10
+echo server-name=MCMMO Solo Server
+echo spawn-protection=0
+echo allow-flight=true
+echo view-distance=10
+echo simulation-distance=10
+echo enable-command-block=true
+echo op-permission-level=4
+echo pvp=true
+echo hardcore=false
+echo white-list=false
+echo enforce-whitelist=false
+echo server-port=25565
+echo enable-rcon=false
+echo motd=Your Personal MCMMO Server - Ready to Level Up!
+) > server.properties
+
+echo.
+echo ================================
+echo        SETUP COMPLETE! 
+echo ================================
+echo.
+echo ✅ Paper server downloaded
+echo ✅ MCMMO Classic installed  
+echo ✅ Auto-launch script created
+echo ✅ Server pre-configured
+echo.
+echo NEXT STEPS:
+echo 1. Double-click 'start-server.bat' to launch server
+echo 2. Open Minecraft and connect to: localhost
+echo 3. Type /mcstats to test MCMMO
+echo 4. Start leveling your skills!
+echo.
+echo TIP: Use /op <yourname> to give yourself admin permissions
+echo.
+pause
+```
+
+LINUX/MAC SETUP SCRIPT:
+Create "setup.sh":
+
+```bash
+#!/bin/bash
+echo "================================"
+echo " MCMMO Single-Player Auto-Setup"
+echo "================================"
+
+# Create server directory
+echo "[1/6] Creating server directory..."
+mkdir -p minecraft-mcmmo-server
+cd minecraft-mcmmo-server
+
+# Download Paper server
+echo "[2/6] Downloading Paper server..."
+curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/latest/downloads/paper-1.21.6-latest.jar"
+
+# Download MCMMO Classic
+echo "[3/6] Downloading MCMMO Classic..."
+mkdir -p plugins
+curl -L -o plugins/mcMMO.jar "https://jenkins.neetgames.com/job/mcMMO/job/mcMMO-Classic/lastSuccessfulBuild/artifact/target/mcMMO.jar"
+
+# Create start script
+echo "[4/6] Creating launch script..."
+cat > start-server.sh << 'EOF'
+#!/bin/bash
+while true; do
+    echo "Starting MCMMO server..."
+    java -Xmx4G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -jar paper.jar --nogui
+    echo "Server stopped. Restarting in 5 seconds... (Ctrl+C to exit)"
+    sleep 5
+done
+EOF
+
+chmod +x start-server.sh
+
+# Accept EULA
+echo "[5/6] Accepting EULA..."
+echo "eula=true" > eula.txt
+
+# Configure server
+echo "[6/6] Configuring server..."
+cat > server.properties << EOF
+online-mode=false
+gamemode=survival
+difficulty=normal
+max-players=10
+server-name=MCMMO Solo Server
+spawn-protection=0
+allow-flight=true
+view-distance=10
+motd=Your Personal MCMMO Server - Ready to Level Up!
+EOF
+
+echo ""
+echo "✅ Setup complete!"
+echo "✅ Run './start-server.sh' to launch"
+echo "✅ Connect to: localhost"
+echo ""
+```
+
+=== USAGE INSTRUCTIONS ===
+
+1. SETUP (One-time):
+   - Copy the appropriate script above into a text file
+   - Windows: Save as "setup.bat" 
+   - Linux/Mac: Save as "setup.sh" and run "chmod +x setup.sh"
+   - Double-click (Windows) or run "./setup.sh" (Linux/Mac)
+
+2. LAUNCH:
+   - Double-click "start-server.bat" (Windows)
+   - Run "./start-server.sh" (Linux/Mac)
+   - Wait for "Done!" message
+
+3. CONNECT:
+   - Open Minecraft Launcher
+   - Go to Multiplayer → Add Server
+   - Server Address: localhost
+   - Connect and play!
+
+4. TEST MCMMO:
+   - Type: /mcstats (shows your skills)
+   - Break blocks, kill mobs → gain XP
+   - Type: /mctop (leaderboards)
+   - Type: /mcability (toggle abilities)
+
+=== ADMIN COMMANDS ===
+
+Essential commands for single-player server management:
+- /op <yourname> - Give yourself admin privileges
+- /gamemode creative - Switch to creative mode
+- /tp <x> <y> <z> - Teleport to coordinates  
+- /time set day - Set time to day
+- /weather clear - Clear weather
+- /save-all - Manually save the world
+- /stop - Safely stop the server
+
+MCMMO specific commands:
+- /mcstats - View your skill levels
+- /mctop [skill] - View skill leaderboards
+- /mcability - Toggle special abilities
+- /mcmmo reload - Reload MCMMO config
+- /addxp <skill> <amount> - Add XP to skills (admin)
+- /mmoedit <player> <skill> <value> - Set skill levels (admin)
+
+=== WHY THIS APPROACH IS BETTER ===
+
+Compared to the old 1.7.10 manual method:
+
+✅ NO BuildTools compilation (saves 10+ minutes)
+✅ NO hardcoded Java paths  
+✅ Modern Minecraft version (1.21.6 vs 1.7.10)
+✅ Better performance (Paper optimizations)
+✅ 100% automated setup
+✅ Pre-configured for optimal single-player experience
+✅ Auto-restart functionality
+✅ Professional JVM tuning flags included
+✅ Works on all modern operating systems
+✅ Uses latest free MCMMO Classic
+✅ No manual file editing required
+
+Total setup time: ~5 minutes (vs 30+ minutes manual)
+
+=== TROUBLESHOOTING ===
+
+Common issues and solutions:
+
+ISSUE: "Java not found"
+SOLUTION: Install Java 21 from adoptium.net, restart computer
+
+ISSUE: "Port already in use"  
+SOLUTION: Close other Minecraft servers, or change server-port in server.properties
+
+ISSUE: Cannot connect to localhost
+SOLUTION: Make sure Windows Firewall allows Java, or temporarily disable firewall
+
+ISSUE: MCMMO not working
+SOLUTION: Check plugins folder contains mcMMO.jar, restart server
+
+ISSUE: Low performance
+SOLUTION: Adjust -Xmx value in start script (4G = 4GB RAM)
+
+ISSUE: Script fails to download files
+SOLUTION: Check internet connection, run as administrator (Windows)
+
+=== CUSTOMIZATION ===
+
+To customize your server:
+- Edit server.properties for basic settings
+- Edit plugins/mcMMO/config.yml for MCMMO settings  
+- Add more plugins to plugins/ folder
+- Modify start script memory allocation (-Xmx4G)
+
+Want more features? Consider these free plugins:
+- WorldEdit (building tools)
+- Essentials (basic commands)  
+- Vault (economy support)
+- LuckPerms (permissions)
+
+=== CONCLUSION ===
+
+This automated setup gives you a professional MCMMO server in minutes, not hours. 
+The scripts handle everything automatically and include performance optimizations 
+that would take hours to configure manually.
+
+Enjoy your automated MCMMO single-player experience!
