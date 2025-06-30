@@ -30,7 +30,29 @@ The server is **fully configured and operational** with:
 - **4GB+ RAM** available for server allocation
 - **Minecraft Java Edition** client
 
-### Quick Start (30 seconds)
+### 🎮 GUI Launcher (Recommended - Easy Mode!)
+
+1. **Navigate to server directory:**
+   ```bash
+   cd minecraft-mcmmo-server
+   ```
+
+2. **Launch the Minecraft-style GUI:**
+   ```bash
+   ./launch-gui.sh
+   ```
+   *On Windows: Double-click `launch-gui.bat`*
+
+3. **Click the grass block button** to start your server!
+
+4. **Wait for green status** - "Server running at localhost:25565"
+
+5. **Connect from Minecraft:**
+   - Open Minecraft → Multiplayer → Add Server
+   - **Server Address:** `localhost`
+   - Connect and start playing!
+
+### Command Line (Advanced Users)
 
 1. **Navigate to server directory:**
    ```bash
@@ -49,6 +71,15 @@ The server is **fully configured and operational** with:
    - Open Minecraft → Multiplayer → Add Server
    - **Server Address:** `localhost`
    - Connect and start playing!
+
+### 🎮 GUI Launcher Features
+
+- **🌱 Grass Block Button**: Click to start/stop your server instantly
+- **💎 Diamond Block**: Button transforms when server is running
+- **📊 Real-time Status**: See server status with color-coded messages
+- **🔄 Auto-Detection**: Automatically detects when server finishes loading
+- **🖼️ Minecraft-style UI**: Authentic inventory-like popup interface
+- **⚡ One-Click Operation**: No command line knowledge required!
 
 ### Essential MCMMO Commands
 
@@ -70,15 +101,18 @@ The server is **fully configured and operational** with:
 ### File Structure
 ```
 minecraft-mcmmo-server/
-├── paper.jar              # Paper server executable
-├── start-server.sh        # Launch script with auto-restart
-├── server.properties      # Server configuration
-├── eula.txt              # License acceptance
+├── paper.jar                    # Paper server executable
+├── MCMMOServerLauncher.java     # 🎮 GUI launcher source code
+├── launch-gui.sh               # 🎮 GUI launcher script (Mac/Linux)
+├── launch-gui.bat              # 🎮 GUI launcher script (Windows)
+├── start-server.sh             # Command line launch script
+├── server.properties           # Server configuration
+├── eula.txt                    # License acceptance
 ├── plugins/
-│   ├── mcMMO.jar         # MCMMO Classic plugin
-│   └── spark/            # Performance monitoring
-├── world/                # Generated world data
-└── cache/                # Downloaded dependencies
+│   ├── mcMMO.jar              # MCMMO Classic plugin
+│   └── spark/                 # Performance monitoring
+├── world/                     # Generated world data
+└── cache/                     # Downloaded dependencies
 ```
 
 ---

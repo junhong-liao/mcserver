@@ -175,8 +175,8 @@ public class MCMMOServerLauncher extends JFrame {
                     statusLabel.setForeground(Color.YELLOW);
                 });
 
-                // Use Java 21 explicitly
-                String javaPath = "/opt/homebrew/bin/java";
+                // Use Java 21 explicitly (same path as start-server.sh)
+                String javaPath = "/opt/homebrew/opt/openjdk@21/bin/java";
                 File javaFile = new File(javaPath);
                 if (!javaFile.exists()) {
                     javaPath = "java"; // fallback to system java
@@ -270,13 +270,6 @@ public class MCMMOServerLauncher extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Set Minecraft-style look and feel
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeel());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         SwingUtilities.invokeLater(() -> {
             new MCMMOServerLauncher().setVisible(true);
         });
