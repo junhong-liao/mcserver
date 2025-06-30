@@ -29,7 +29,7 @@ cd minecraft-mcmmo-server
 
 REM Download Paper server (latest)
 echo [2/6] Downloading Paper server...
-curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/latest/downloads/paper-1.21.6-latest.jar"
+curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.5/builds/114/downloads/paper-1.21.5-114.jar"
 if errorlevel 1 (
     echo ERROR: Failed to download Paper server
     pause
@@ -125,7 +125,7 @@ cd minecraft-mcmmo-server
 
 # Download Paper server
 echo "[2/6] Downloading Paper server..."
-curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/latest/downloads/paper-1.21.6-latest.jar"
+curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.5/builds/114/downloads/paper-1.21.5-114.jar"
 
 # Download MCMMO Classic
 echo "[3/6] Downloading MCMMO Classic..."
@@ -221,7 +221,7 @@ Compared to the old 1.7.10 manual method:
 
 ✅ NO BuildTools compilation (saves 10+ minutes)
 ✅ NO hardcoded Java paths  
-✅ Modern Minecraft version (1.21.6 vs 1.7.10)
+✅ Modern Minecraft version (1.21.5 vs 1.7.10)
 ✅ Better performance (Paper optimizations)
 ✅ 100% automated setup
 ✅ Pre-configured for optimal single-player experience

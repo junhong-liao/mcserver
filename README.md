@@ -4,7 +4,7 @@ A fully automated, single-player optimized Minecraft server setup featuring **MC
 
 ## 📋 Project Overview
 
-This is a **Paper-based Minecraft 1.21.6 server** specifically configured for:
+This is a **Paper-based Minecraft 1.21.5 server** specifically configured for:
 - **Single-player MCMMO gameplay** with skill leveling system
 - **Automated setup and deployment** via shell scripts
 - **Production-ready configuration** with optimized JVM flags
@@ -13,7 +13,7 @@ This is a **Paper-based Minecraft 1.21.6 server** specifically configured for:
 ### Current State ✅
 
 The server is **fully configured and operational** with:
-- ✅ Paper 1.21.6 server installed (`paper.jar`)
+- ✅ Paper 1.21.5 server installed (`paper.jar`)
 - ✅ MCMMO Classic plugin active (`mcMMO.jar`)
 - ✅ EULA accepted (`eula=true`)
 - ✅ Optimized server properties for single-player experience
@@ -32,25 +32,19 @@ The server is **fully configured and operational** with:
 
 ### 🎮 GUI Launcher (Recommended - Easy Mode!)
 
-1. **Navigate to server directory:**
-   ```bash
-   cd minecraft-mcmmo-server
-   ```
-
-2. **Launch the Minecraft-style GUI:**
+1. **Launch the GUI:**
    ```bash
    ./launch-gui.sh
    ```
-   *On Windows: Double-click `launch-gui.bat`*
 
-3. **Click the grass block button** to start your server!
+2. **Click the grass block in the center** to start your server!
 
-4. **Wait for green status** - "Server running at localhost:25565"
-
-5. **Connect from Minecraft:**
+3. **Connect from Minecraft:**
    - Open Minecraft → Multiplayer → Add Server
    - **Server Address:** `localhost`
    - Connect and start playing!
+
+The GUI is a simple 3x3 inventory-style popup with a grass block button in the center. Once clicked, the server starts automatically and the GUI disappears.
 
 ### Command Line (Advanced Users)
 
@@ -74,12 +68,10 @@ The server is **fully configured and operational** with:
 
 ### 🎮 GUI Launcher Features
 
-- **🌱 Grass Block Button**: Click to start/stop your server instantly
-- **💎 Diamond Block**: Button transforms when server is running
-- **📊 Real-time Status**: See server status with color-coded messages
-- **🔄 Auto-Detection**: Automatically detects when server finishes loading
-- **🖼️ Minecraft-style UI**: Authentic inventory-like popup interface
-- **⚡ One-Click Operation**: No command line knowledge required!
+- **🌱 Grass Block Button**: Simple one-click server startup
+- **🖼️ Minecraft Inventory UI**: Clean 3x3 grid design with grass block in center
+- **⚡ Minimal Interface**: No clutter, just click and go
+- **🚀 Auto-Hide**: GUI disappears once server starts
 
 ### Essential MCMMO Commands
 
@@ -102,9 +94,8 @@ The server is **fully configured and operational** with:
 ```
 minecraft-mcmmo-server/
 ├── paper.jar                    # Paper server executable
-├── MCMMOServerLauncher.java     # 🎮 GUI launcher source code
-├── launch-gui.sh               # 🎮 GUI launcher script (Mac/Linux)
-├── launch-gui.bat              # 🎮 GUI launcher script (Windows)
+├── MinecraftServerGUI.java      # 🎮 Simple GUI launcher source code
+├── launch-gui.sh               # 🎮 GUI launcher script
 ├── start-server.sh             # Command line launch script
 ├── server.properties           # Server configuration
 ├── eula.txt                    # License acceptance
@@ -269,7 +260,7 @@ start_server_safely() {
 
 ### Server Specifications
 - **Server Type:** Paper (Bukkit/Spigot fork)
-- **Minecraft Version:** 1.21.6
+- **Minecraft Version:** 1.21.5
 - **Java Version:** OpenJDK 21 (Homebrew installation detected)
 - **Memory Allocation:** 2GB-4GB with G1 Garbage Collector
 - **Network:** localhost:25565 (single-player optimized)
@@ -313,7 +304,7 @@ start_server_safely() {
 ## 📝 Development History
 
 This server was configured using automated setup scripts with the following components:
-- Automated Paper server download (latest 1.21.6 build)
+- Automated Paper server download (latest 1.21.5 build)
 - MCMMO Classic from Jenkins CI (latest successful build)
 - Production-ready configuration templates
 - Cross-platform compatibility (Linux/macOS/Windows)

@@ -10,7 +10,7 @@ cd minecraft-mcmmo-server
 
 # Download Paper server
 echo "[2/6] Downloading Paper server..."
-curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/latest/downloads/paper-1.21.6-latest.jar"
+curl -L -o paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.5/builds/114/downloads/paper-1.21.5-114.jar"
 
 # Download MCMMO Classic
 echo "[3/6] Downloading MCMMO Classic..."
