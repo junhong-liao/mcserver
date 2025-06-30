@@ -2,6 +2,6 @@
 
 echo "🎮 Starting Minecraft Server GUI..."
 
-# Navigate to server directory and launch GUI
+# Navigate to server directory and launch simplified GUI
 cd minecraft-mcmmo-server
-./launch-gui.sh 
+java MinecraftServerGUI 

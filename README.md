@@ -1,10 +1,10 @@
 # Minecraft MCMMO Server
 
-A fully automated, single-player optimized Minecraft server setup featuring **MCMMO Classic** for skill progression and leveling. This project provides a complete, ready-to-run Minecraft server environment with minimal configuration required.
+A fully automated, single-player optimized Minecraft server setup featuring **MCMMO Classic** for skill progression and leveling.
 
-## 📋 Project Overview
+## 📋 Overview
 
-This is a **Paper-based Minecraft 1.21.5 server** specifically configured for:
+This is a **Paper-based Minecraft 1.21.6 server** configured for:
 - **Single-player MCMMO gameplay** with skill leveling system
 - **Automated setup and deployment** via shell scripts
 - **Production-ready configuration** with optimized JVM flags
@@ -13,40 +13,38 @@ This is a **Paper-based Minecraft 1.21.5 server** specifically configured for:
 ### Current State ✅
 
 The server is **fully configured and operational** with:
-- ✅ Paper 1.21.5 server installed (`paper.jar`)
-- ✅ MCMMO Classic plugin active (`mcMMO.jar`)
-- ✅ EULA accepted (`eula=true`)
+- ✅ Paper 1.21.6 server installed
+- ✅ MCMMO Classic plugin active
+- ✅ EULA accepted
 - ✅ Optimized server properties for single-player experience
 - ✅ Performance monitoring with Spark plugin
 - ✅ JVM memory allocation: 4GB max, 2GB min with G1GC
-- ✅ Auto-restart functionality built into start script
+- ✅ Auto-restart functionality
 
 ---
 
-## 🚀 **USAGE** (Optimized Section)
+## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 21** (OpenJDK recommended from [Adoptium](https://adoptium.net))
+- **Java 21+** (Required for Paper 1.21.6!) - Install with: `brew install openjdk@21`
 - **4GB+ RAM** available for server allocation
 - **Minecraft Java Edition** client
 
-### 🎮 GUI Launcher (Recommended - Easy Mode!)
+### 🎮 GUI Launcher (Recommended)
 
 1. **Launch the GUI:**
    ```bash
    ./launch-gui.sh
    ```
 
-2. **Click the grass block in the center** to start your server!
+2. **Click the grass block** to start your server!
 
 3. **Connect from Minecraft:**
    - Open Minecraft → Multiplayer → Add Server
    - **Server Address:** `localhost`
    - Connect and start playing!
 
-The GUI is a simple 3x3 inventory-style popup with a grass block button in the center. Once clicked, the server starts automatically and the GUI disappears.
-
-### Command Line (Advanced Users)
+### Command Line Alternative
 
 1. **Navigate to server directory:**
    ```bash
@@ -57,23 +55,15 @@ The GUI is a simple 3x3 inventory-style popup with a grass block button in the c
    ```bash
    ./start-server.sh
    ```
-   *On Windows: Double-click `start-server.bat`*
 
 3. **Wait for "Done!" message** (typically 15-30 seconds)
 
 4. **Connect from Minecraft:**
-   - Open Minecraft → Multiplayer → Add Server
-   - **Server Address:** `localhost`
-   - Connect and start playing!
+   - Server Address: `localhost`
 
-### 🎮 GUI Launcher Features
+---
 
-- **🌱 Grass Block Button**: Simple one-click server startup
-- **🖼️ Minecraft Inventory UI**: Clean 3x3 grid design with grass block in center
-- **⚡ Minimal Interface**: No clutter, just click and go
-- **🚀 Auto-Hide**: GUI disappears once server starts
-
-### Essential MCMMO Commands
+## 🎮 MCMMO Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -83,19 +73,20 @@ The GUI is a simple 3x3 inventory-style popup with a grass block button in the c
 | `/mcscoreboard` | Toggle skill scoreboard | Show skills on screen |
 | `/inspect [player]` | View player stats | `/inspect Steve` |
 
-### Server Management
+## 🔧 Server Management
 
 - **Stop Server:** `Ctrl+C` in terminal (auto-restarts by default)
 - **Admin Commands:** Use `/op <username>` to grant admin privileges
-- **Performance Monitoring:** `/spark profiler` (Spark plugin commands)
+- **Performance Monitoring:** `/spark profiler` commands
 - **Configuration:** Edit `server.properties` for server settings
 
-### File Structure
+## 📁 File Structure
+
 ```
 minecraft-mcmmo-server/
 ├── paper.jar                    # Paper server executable
-├── MinecraftServerGUI.java      # 🎮 Simple GUI launcher source code
-├── launch-gui.sh               # 🎮 GUI launcher script
+├── MinecraftServerGUI.java      # GUI launcher source code
+├── launch-gui.sh               # GUI launcher script
 ├── start-server.sh             # Command line launch script
 ├── server.properties           # Server configuration
 ├── eula.txt                    # License acceptance
@@ -108,207 +99,73 @@ minecraft-mcmmo-server/
 
 ---
 
-## 🤖 **AGENTIC CODING** (Optimized Section)
+## 🛠️ Initial Setup
 
-This section provides comprehensive guidance for AI agents working on this codebase, including architectural patterns, automation opportunities, and development workflows.
+If setting up from scratch, run:
 
-### Architecture Overview
-
-```mermaid
-graph TD
-    A[setup.sh] --> B[minecraft-mcmmo-server/]
-    B --> C[paper.jar]
-    B --> D[plugins/mcMMO.jar]
-    B --> E[start-server.sh]
-    B --> F[server.properties]
-    
-    C --> G[Paper Server Runtime]
-    D --> H[MCMMO Classic Features]
-    E --> I[Auto-restart Loop]
-    F --> J[Server Configuration]
-    
-    G --> K[Player Connection: localhost:25565]
-    H --> L[Skill System & Abilities]
-    I --> M[High Availability]
-    J --> N[Single-player Optimized]
-```
-
-### Automation Targets
-
-#### High-Priority Automation Opportunities
-
-1. **Plugin Management System**
-   ```bash
-   # Current: Manual plugin downloads
-   # Target: Automated plugin lifecycle management
-   
-   suggested_structure/
-   ├── plugins.yml          # Plugin definitions with versions
-   ├── scripts/
-   │   ├── update-plugins.sh
-   │   ├── install-plugin.sh
-   │   └── remove-plugin.sh
-   ```
-
-2. **Configuration Management**
-   ```yaml
-   # Target: YAML-based configuration system
-   server:
-     memory: "4G"
-     java_flags: ["UseG1GC", "ParallelRefProcEnabled"]
-     plugins:
-       mcmmo:
-         enabled: true
-         version: "latest"
-         config_overrides:
-           skills.mining.enabled: true
-   ```
-
-3. **Backup & World Management**
-   ```bash
-   # Automation targets:
-   # - Scheduled world backups
-   # - World reset/regeneration tools  
-   # - Save file compression and archival
-   ```
-
-#### Development Patterns for Agents
-
-**File Modification Patterns:**
-- Always backup `server.properties` before modifications
-- Use atomic replacements for configuration files
-- Validate Java syntax for startup script changes
-- Test plugin compatibility before deployment
-
-**Common Agent Tasks:**
 ```bash
-# Plugin Installation Pattern
-curl -L -o "plugins/${PLUGIN_NAME}.jar" "${DOWNLOAD_URL}"
-# Restart server to load new plugin
-pkill -f "paper.jar"
-./start-server.sh &
-
-# Configuration Update Pattern  
-cp server.properties server.properties.backup
-sed -i "s/^${KEY}=.*/${KEY}=${VALUE}/" server.properties
-
-# Memory Optimization Pattern
-# Modify start-server.sh with calculated JVM flags based on system resources
+./setup.sh
 ```
 
-### Agent Development Guidelines
-
-#### File Safety Protocols
-- **Critical Files:** `server.properties`, `start-server.sh`, `eula.txt`
-- **Safe to Modify:** Plugin configs, world files (with backup)
-- **Never Modify:** `paper.jar`, `mcMMO.jar` (use replacement instead)
-
-#### Testing Automation
-```bash
-# Validation script template for agents
-validate_server() {
-    # 1. Check Java availability
-    java -version || return 1
-    
-    # 2. Validate paper.jar exists and is executable
-    [ -f "paper.jar" ] || return 1
-    
-    # 3. Check EULA acceptance
-    grep -q "eula=true" eula.txt || return 1
-    
-    # 4. Test server startup (dry run)
-    timeout 30s java -jar paper.jar --help >/dev/null 2>&1
-}
-```
-
-#### Common Integration Points
-
-1. **Log Analysis:** Server logs at `logs/latest.log`
-2. **Plugin Data:** Individual plugin folders in `plugins/`
-3. **World Modification:** Direct world file access in `world/`
-4. **Performance Metrics:** Via Spark plugin API
-5. **Configuration Updates:** Hot-reload supported for most settings
-
-#### Error Handling Patterns
-```bash
-# Robust server start with error handling
-start_server_safely() {
-    local max_attempts=3
-    local attempt=1
-    
-    while [ $attempt -le $max_attempts ]; do
-        echo "Attempt $attempt to start server..."
-        
-        if java -Xmx4G -Xms2G -jar paper.jar --nogui; then
-            echo "Server started successfully"
-            return 0
-        else
-            echo "Server start failed (attempt $attempt)"
-            ((attempt++))
-            sleep 5
-        fi
-    done
-    
-    echo "Failed to start server after $max_attempts attempts"
-    return 1
-}
-```
+This will:
+1. Create server directory
+2. Download Paper 1.21.6
+3. Download MCMMO Classic
+4. Configure optimized settings
+5. Accept EULA
+6. Create launch scripts
 
 ---
 
-## 🔧 Technical Details
+## 🔧 Configuration
 
-### Server Specifications
-- **Server Type:** Paper (Bukkit/Spigot fork)
-- **Minecraft Version:** 1.21.5
-- **Java Version:** OpenJDK 21 (Homebrew installation detected)
-- **Memory Allocation:** 2GB-4GB with G1 Garbage Collector
-- **Network:** localhost:25565 (single-player optimized)
-
-### Plugin Ecosystem
-- **MCMMO Classic:** Skill leveling and RPG mechanics
-- **Spark:** Performance profiling and monitoring
-- **bStats:** Anonymous usage statistics
-
-### JVM Optimization Flags
+### Memory Settings
+Default: 4GB max, 2GB min. Modify in `start-server.sh`:
 ```bash
--Xmx4G -Xms2G                     # Memory allocation
--XX:+UseG1GC                      # G1 garbage collector
--XX:+ParallelRefProcEnabled       # Parallel reference processing
+java -Xmx4G -Xms2G ...
 ```
 
-## 🚨 Troubleshooting
+### Server Properties
+Key settings in `server.properties`:
+- `online-mode=false` - Allows offline/cracked clients
+- `gamemode=survival` - Default game mode
+- `max-players=10` - Player limit
+- `view-distance=10` - Render distance
 
-### Common Issues
-
-**"Unable to access jarfile paper.jar"**
-- **Cause:** Working directory mismatch
-- **Solution:** Ensure you're in `minecraft-mcmmo-server/` directory
-- **Command:** `cd minecraft-mcmmo-server && ./start-server.sh`
-
-**Server won't start**
-- Check Java installation: `java -version`
-- Verify EULA acceptance: `cat eula.txt` should show `eula=true`
-- Check available memory: Reduce `-Xmx4G` to `-Xmx2G` if needed
-
-**Cannot connect from Minecraft**
-- Verify server is running (look for "Done!" message)
-- Use exactly `localhost` as server address
-- Ensure server-port=25565 in server.properties
-
-### Performance Tuning
-- **Low RAM systems:** Reduce memory allocation in `start-server.sh`
-- **High latency:** Adjust `view-distance` in `server.properties`
-- **Plugin conflicts:** Check `logs/latest.log` for error messages
-
-## 📝 Development History
-
-This server was configured using automated setup scripts with the following components:
-- Automated Paper server download (latest 1.21.5 build)
-- MCMMO Classic from Jenkins CI (latest successful build)
-- Production-ready configuration templates
-- Cross-platform compatibility (Linux/macOS/Windows)
+### MCMMO Configuration
+Plugin configs located in `plugins/mcMMO/`:
+- `config.yml` - Main MCMMO settings
+- `advanced.yml` - Advanced features
+- `child.yml` - Child skill configurations
 
 ---
 
-**Project Status:** ✅ Ready for Use | 🔧 Actively Maintainable | 🤖 Agent-Friendly 
+## 🎯 Tips
+
+- Use `/op <yourname>` to give yourself admin permissions
+- Check `/mcstats` to see your skill progression
+- The server auto-restarts if it crashes
+- Backups are stored in `plugins/mcMMO/backup/`
+- Use Spark plugin for performance monitoring: `/spark profiler start`
+
+## 🆘 Troubleshooting
+
+**Server won't start:**
+- Ensure Java 21+ is installed: `brew install openjdk@21`
+- Check available RAM (needs 4GB+)
+- Verify paper.jar downloaded correctly
+
+**Java version error:**
+- Paper 1.21.6 requires Java 21 or higher
+- Install Java 21: `brew install openjdk@21`
+- The start script automatically uses Java 21 if available
+
+**Can't connect:**
+- Ensure server shows "Done!" message
+- Try `localhost:25565` as server address
+- Check firewall settings
+
+**MCMMO not working:**
+- Verify mcMMO.jar is in plugins/ folder
+- Check server logs for plugin errors
+- Ensure you're not in creative mode 

@@ -1,0 +1,36 @@
+# Compiled Java classes
+*.class
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.bak
+*.backup
+
+# Minecraft server runtime files
+minecraft-mcmmo-server/logs/*
+minecraft-mcmmo-server/crash-reports/*
+minecraft-mcmmo-server/world/session.lock
+minecraft-mcmmo-server/world_nether/session.lock
+minecraft-mcmmo-server/world_the_end/session.lock
+minecraft-mcmmo-server/usercache.json
+
+# Paper remapped files (auto-generated)
+minecraft-mcmmo-server/plugins/.paper-remapped/
+
+# mcMMO backup files (keep directory structure but ignore content)
+minecraft-mcmmo-server/plugins/mcMMO/backup/*.zip
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Log files
+*.log
+*.log.gz 

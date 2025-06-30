@@ -1,22 +1,23 @@
-[23:22:55] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.7; Homebrew Homebrew) on Mac OS X 14.4.1 (aarch64)
-[23:22:55] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.5-114-ver/1.21.5@a1b3058 (2025-06-18T10:59:02Z) for Minecraft 1.21.5
-[23:22:56] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[23:22:57] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
-[23:23:02] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 4978ms.
-[23:23:02] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/mcMMO.jar'...
-[23:23:02] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/mcMMO.jar' in 288ms.
-[23:23:02] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[23:23:02] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[11:29:15] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.7; Homebrew Homebrew) on Mac OS X 14.4.1 (aarch64)
+[11:29:15] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.6-47-main@57c202e (2025-06-28T20:15:05Z) for Minecraft 1.21.6
+[11:29:16] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[11:29:17] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[11:29:20] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 3672ms.
+[11:29:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/mcMMO.jar'...
+[11:29:21] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/mcMMO.jar' in 281ms.
+[11:29:21] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[11:29:21] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - mcMMO (1.6.5)
-[23:23:06] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[23:23:06] [ServerMain/ERROR]: Failed to start the minecraft server
-net.minecraft.util.DirectoryLock$LockException: /Users/junho/Downloads/mc-server/minecraft-mcmmo-server/./world/session.lock: already locked (possibly by other Minecraft instance?)
-	at net.minecraft.util.DirectoryLock$LockException.alreadyLocked(DirectoryLock.java:100) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at net.minecraft.util.DirectoryLock.create(DirectoryLock.java:30) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess.<init>(LevelStorageSource.java:436) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at net.minecraft.world.level.storage.LevelStorageSource.validateAndCreateAccess(LevelStorageSource.java:351) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at net.minecraft.server.Main.main(Main.java:184) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:21) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at org.bukkit.craftbukkit.Main.main(Main.java:243) ~[paper-1.21.5.jar:1.21.5-114-a1b3058]
-	at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[app:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[11:29:24] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[11:29:25] [ServerMain/INFO]: Loaded 1407 recipes
+[11:29:25] [ServerMain/INFO]: Loaded 1520 advancements
+[11:29:25] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[11:29:26] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 250.1ms
+[11:29:26] [Server thread/INFO]: Starting minecraft server version 1.21.6
+[11:29:26] [Server thread/INFO]: Loading properties
+[11:29:26] [Server thread/INFO]: This server is running Paper version 1.21.6-47-main@57c202e (2025-06-28T20:15:05Z) (Implementing API version 1.21.6-R0.1-SNAPSHOT)
+[11:29:26] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[11:29:26] [Server thread/INFO]: Using 4 threads for Netty based IO
+[11:29:26] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[11:29:26] [Server thread/INFO]: [MoonriseCommon] Paper is using 2 worker threads, 1 I/O threads
+[11:29:26] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
